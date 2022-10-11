@@ -14,7 +14,7 @@ spec:
       template:
         spec:
           containers:
-          - image: mpioperator/mpi-pi:mpich
+          - image: registry.digitalocean.com/optimiser-test/mpi-pi:mpich
             imagePullPolicy: Always
             name: mpi-launcher
             securityContext:
@@ -33,7 +33,7 @@ spec:
       template:
         spec:
           containers:
-          - image: mpioperator/mpi-pi:mpich
+          - image: registry.digitalocean.com/optimiser-test/mpi-pi:mpich
             imagePullPolicy: Always
             name: mpi-worker
             securityContext:

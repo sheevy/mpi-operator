@@ -481,6 +481,8 @@ spec:
         - -alsologtostderr
         - --lock-namespace
         - mpi-operator
-        image: mpioperator/mpi-operator:latest
+        image: registry.digitalocean.com/optimiser-test/mpi-operator:latest
         name: mpi-operator
+      imagePullSecrets:
+      - name: optimiser-test
       serviceAccountName: mpi-operator

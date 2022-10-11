@@ -1,4 +1,4 @@
-FROM mpioperator/base
+FROM base
 
 RUN apt update \
     && apt install -y --no-install-recommends mpich dnsutils \
