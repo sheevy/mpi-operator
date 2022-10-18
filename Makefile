@@ -94,13 +94,16 @@ images:
 
 .PHONY: test_images
 test_images:
-	${IMG_BUILDER} build --build-arg port=${BASE_IMAGE_SSH_PORT} -t mpioperator/base build/base
-	${IMG_BUILDER} build -t mpioperator/openmpi build/base -f build/base/openmpi.Dockerfile
-	${IMG_BUILDER} build -t mpioperator/openmpi-builder build/base -f build/base/openmpi-builder.Dockerfile
-	${IMG_BUILDER} build -t mpioperator/mpi-pi:openmpi examples/v2beta1/pi
-	${IMG_BUILDER} build -t mpioperator/intel build/base -f build/base/intel.Dockerfile
-	${IMG_BUILDER} build -t mpioperator/intel-builder build/base -f build/base/intel-builder.Dockerfile
-	${IMG_BUILDER} build -t mpioperator/mpi-pi:intel examples/v2beta1/pi -f examples/v2beta1/pi/intel.Dockerfile
+	${IMG_BUILDER} build --build-arg port=${BASE_IMAGE_SSH_PORT} -t registry.digitalocean.com/optimiser-test/base -t base build/base
+	${IMG_BUILDER} build -t registry.digitalocean.com/optimiser-test/openmpi -t openmpi build/base -f build/base/openmpi.Dockerfile
+	${IMG_BUILDER} build -t registry.digitalocean.com/optimiser-test/openmpi-builder -t openmpi-builder build/base -f build/base/openmpi-builder.Dockerfile
+	${IMG_BUILDER} build -t registry.digitalocean.com/optimiser-test/mpi-pi:openmpi -t mpi-pi:openmpi examples/v2beta1/pi
+	${IMG_BUILDER} build -t registry.digitalocean.com/optimiser-test/intel -t intel build/base -f build/base/intel.Dockerfile
+	${IMG_BUILDER} build -t registry.digitalocean.com/optimiser-test/intel-builder -t intel-builder build/base -f build/base/intel-builder.Dockerfile
+	${IMG_BUILDER} build -t registry.digitalocean.com/optimiser-test/mpi-pi:intel -t mpi-pi:intel examples/v2beta1/pi -f examples/v2beta1/pi/intel.Dockerfile
+	${IMG_BUILDER} build -t registry.digitalocean.com/optimiser-test/mpich -t mpich build/base -f build/base/mpich.Dockerfile
+	${IMG_BUILDER} build -t registry.digitalocean.com/optimiser-test/mpich-builder -t mpich-builder build/base -f build/base/mpich-builder.Dockerfile
+	${IMG_BUILDER} build -t registry.digitalocean.com/optimiser-test/mpi-pi:mpich -t mpi-pi:mpich examples/v2beta1/pi -f examples/v2beta1/pi/mpich.Dockerfile
 
 .PHONY: tidy
 tidy:
