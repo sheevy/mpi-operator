@@ -2,6 +2,7 @@ FROM debian:buster
 
 ARG port=2222
 
+# TODO remove htop eventually
 RUN apt update && apt install -y --no-install-recommends \
 			openssh-server \
 			openssh-client \
